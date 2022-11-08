@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/solid.min.css" integrity="sha512-uj2QCZdpo8PSbRGL/g5mXek6HM/APd7k/B5Hx/rkVFPNOxAQMXD+t+bG4Zv8OAdUpydZTU3UHmyjjiHv2Ww0PA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+        *
+        {
+            margin: 0;
+            padding: 0;
+            border: none;
+            outline: none;
+            font-family: 'Poppins', sans-serif;
+            text-decoration: none;
+        }
+        body
+        {
+            background: lightsteelblue;
+        }
+        .logo_img
+        {
+            width: 60px;
+           border-radius: 10px;
+        }
+        .l
+        {
+            display: flex;
+            text-align: center;
+            transition: all .5s ease;
+            margin: 10px 0 0 10px;
+        }
+        .l .logo
+        {
+            color:midnightblue;
+            font-weight: bold;
+            padding: 15px;
+            font-size: 30px;
+            text-transform: capitalize;
+            text-shadow: 1px 1px 1px #000;
+        }
+        nav
+        {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            background-color: whitesmoke; 
+            width: 90px;
+            height: 100%;
+            transition: width .2s linear;
+            overflow: hidden;
+        }
+        a
+        {
+            position: relative;
+            color:grey;
+            font-size: 15px;
+            width: 300px;
+            padding: 10px;
+            display: block;
+        }
+        .fa-solid
+        {
+            position: relative;
+            width: 70px;
+            height: 40px;
+            font-size: 20px;
+            text-align: center;
+            color: midnightblue;
+            top: 14px;
+        }
+        .nav_link
+        {
+            position: relative;
+            top: 12px;
+            margin-left:10px ;
+        }
+        a:hover
+        {
+            background: #eee;
+            color: black;
+            font-weight: bolder;
+        }
+        nav:hover
+        {
+            width: 280px;
+            transition: all .5s ease;
+        }
+        .logout
+        {
+            position: absolute;
+            bottom: 0;
+        }
+        .content
+        {
+            margin-left: 100px;
+        }
+        .sec1
+        {
+            display: flex;
+        }
+        .sec1 .heading
+        {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+        }
+        .title
+        {
+            padding-top:7px ;
+            font-size: 22px;
+        }
+        .date
+        {
+            margin-left: 700px;
+            font-size: 15px;
+            padding-top:7px ;
+        }
+        .search
+        {
+            width: 300px;
+            height: 40px;
+            border-radius: 5px;
+            color: black;
+            font-size: 15px;
+            padding:10px ;
+            background-color: whitesmoke;
+        }
+        .sec2
+        {
+            display: flex;
+            background-color: white;
+            width: fit-content;
+            height: 180px;
+            padding: 30px;
+            margin: auto;
+            border-radius: 50px;
+            box-shadow: 0 30px 60px rgba(0,0,0,.2);
+        }
+        .sec2 .welcome
+        {
+            padding-left: 30px;
+            text-align: center;
+            margin: auto;
+        }
+        .welcome h2
+        {
+            color: midnightblue;
+            font-size: 25px;
+        }
+        .welcome p
+        {
+            color: #FE6674;
+            font-size: 15px;
+        }
+        .sec2 .image
+        {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        .sec2 .w_img
+        {
+           width: 270px;
+           height: 300px;
+          margin-bottom: 30px;
+           margin-left: 30px;
+           border-radius: 50px;
+        }
+        .middle
+        {
+            display: flex;
+        }
+        .container
+        {
+            margin-left: 180px;
+            margin-top: 70px;
+            gap: 20px;
+        }
+        .sec3
+        {
+            display: block;
+            background-color: white;
+            border-radius: 30px;
+            width: 290px;
+            height: fit-content;
+            padding: 10px;
+            box-shadow: 0 30px 60px rgba(0,0,0,.2);
+        }
+        .heading1
+        {
+            display: flex;
+            padding: 10px;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .heading1 h3 
+        {
+            font-size: 18px;
+            
+        }
+        .heading1 h5
+        {
+            color: gray;
+        }
+        .heading1 h5:hover
+        {
+            text-shadow: 1px 0 1px gray;
+        }
+        .row
+        {
+            display: flex;
+            padding:10px;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .row h4
+        {
+            color:midnightblue;
+            font-size: 12px;
+        }
+        .percentage
+        {
+            display: flex;
+           gap: 5px;
+        }
+        .percentage .pb
+        {
+            width: 70px;
+            height: 3px;
+            border: none;
+            background-color: #eee;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: auto;
+        }
+        .percentage .pb .load
+        {
+            width: 25%;
+            height: 100%;
+            background-color: #FE6674; 
+        }
+        .percentage .pb .load1
+        {
+            width: 44%;
+            height: 100%;
+            background-color: rgb(20, 20, 139); 
+        }
+        .percentage .pb .load2
+        {
+            width: 40%;
+            height: 100%;
+            background-color: rgb(20, 20, 139); 
+        }
+        .percentage .pb .load3
+        {
+            width:35%;
+            height: 100%;
+            background-color: #FE6674; 
+        }
+        .percentage .pb .load4
+        {
+            width: 85%;
+            height: 100%;
+            background-color: rgb(20, 20, 139);
+        }
+        .box
+        {
+            position: relative;
+            width: 300px;
+            height: 290px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: whitesmoke;
+            border-radius: 30px;
+            box-shadow: 0 30px 60px rgba(0,0,0,.2);
+            margin-top: 67px;
+            margin-left: 120px;
+        }
+        .box .percent
+        {
+            position: relative;
+            width: 150px;
+            height: 150px;
+        }
+        .box .percent svg
+        {
+            position: relative;
+            width: 150px;
+            height: 150px;
+        }
+        .box .percent svg circle
+        {
+            width: 150px;
+            height: 150px;
+            fill: none;
+            stroke-width: 10;
+            stroke: #000;
+            transform: translate(5px,5px);
+            stroke-dasharray: 440;
+            stroke-dashoffset: 440;
+            stroke-linecap: round;
+        }
+        .box .percent svg circle:nth-child(1)
+        {
+            stroke-dashoffset: 0;
+            stroke: #f3f3f3;
+        }
+        .box .percent svg circle:nth-child(2)
+        {
+            stroke-dashoffset: calc(440 - (440 * 87) / 100);
+            stroke: #03a9f4;
+        }
+        .box .percent .number
+        {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #111;
+        }
+        .box .percent .number h2
+        {
+            font-size: 48px;
+        }
+        .box .percent .number h2 span
+        {
+            font-size: 24px;
+        }
+        .box .c_text
+        {
+            padding: 10px;
+            color:midnightblue;
+            letter-spacing: 1px;
+            width: fit-content;
+        }
+        .adj
+        {
+            display: flex;
+        }
+        .course
+        {
+            margin-left: 150px;
+            margin-top: 25px;
+        }
+        .sec4 h3
+        {
+            padding: 10px;
+            font-size: 22px;
+        }
+        .divisions
+        {
+            display: inline-block;
+            gap: 20px;
+            justify-content: space-between;
+        }
+        .box1
+        {
+            background-color: #eee;
+            border-radius: 20px;
+            width: 300px;
+            display: flex;
+            padding: 10px;
+            gap: 10px;
+            box-shadow: 0 30px 60px rgba(0,0,0,.2);
+        }
+        .box1 .level
+        {
+            padding: 20px;
+            background-color: #FE6674;
+            border-radius: 30px;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+        }
+        .sub .arrow
+        {
+            text-align: center;
+            justify-content: space-between;
+        }
+        .box2
+        {
+            background-color: #eee;
+            border-radius: 20px;
+            width: 300px;
+            display: flex;
+            padding: 10px;
+            gap: 10px;
+            box-shadow: 0 30px 60px rgba(0,0,0,.2);
+        }
+        .box2 .level
+        {
+            padding: 20px;
+            background-color: #FE6674;
+            border-radius: 30px;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+        }
+        .box3
+        {
+            background-color: #eee;
+            border-radius: 20px;
+            width: 300px;
+            display: flex;
+            padding: 10px;
+            gap:10px;
+            box-shadow: 0 30px 60px rgba(0,0,0,.2);
+        }
+        .box3 .level
+        {
+            padding: 20px;
+            background-color: #FE6674;
+            border-radius: 30px;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+        }
+        @media screen and (max-width:500px)
+        {
+        nav
+        {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            background-color: whitesmoke; 
+            width: 90px;
+            height: auto;
+            transition: width .2s linear;
+            overflow: hidden;
+        }
+        .sec1
+        {
+            display: flex;
+        }
+        .sec1 .heading
+        {
+            display: block;
+            gap: 20px;
+            padding: 20px;
+        }
+        .title
+        {
+            padding-top:7px ;
+            font-size: 22px;
+        }
+        .date
+        {
+            margin-left:0px;
+            font-size: 18px;
+            padding-top:7px ;
+        }
+        .search
+        {
+            width: 330px;
+            height: 30px;
+            border-radius: 5px;
+            color: black;
+            font-size: 15px;
+            padding:10px ;
+            background-color: whitesmoke;
+            
+        }
+        .sec2
+        {
+            display: block;
+            height: 330px;
+            width: 300px;
+            margin: auto;
+        }
+        .middle
+        {
+            display: block;
+        }
+        .container
+        {
+            margin-left: 140px;
+            margin-top: 50px;
+            gap: 20px;
+        }
+        .adj
+        {
+            display: block;
+        }
+        .box
+        {
+            margin-top: 50px;
+            margin-left: 140px;
+        }
+        .course
+        {
+            margin-left: 140px;
+            margin-top: 25px;
+        }
+         }    
+
+    </style>
+</head>
+<body>
+    <nav>
+    <ul>
+        <li>
+            <a href="#" class="l">
+                <img class="logo_img"src="images/l.jpg">
+                <span class="logo">Lingua</span>
+            </a>
+        </li>
+        <li><a href="#">
+            <i class="fa-solid fa-chart-line"></i>
+            <span class="nav_link">Dashboard</span></a>
+        </li>
+        <li><a href="#">
+            <i class="fa-solid fa-folder-open"></i>
+            <span class="nav_link">Class</span></a>
+        </li>
+        <li><a href="#">
+            <i class="fa-solid fa-book"></i>
+            <span class="nav_link">Resources</span></a>
+        </li>
+        <li><a href="#">
+            <i class="fa-solid fa-calendar"></i>
+            <span class="nav_link">Learning plan</span></a>
+        </li>
+        <li><a href="#">
+            <i class="fa-solid fa-comment"></i>
+            <span class="nav_link">Chat</span></a>
+        </li>
+        <li><a href="#">
+            <i class="fa-solid fa-gears"></i>
+            <span class="nav_link">Settings</span></a>
+        </li>
+        <li><a href="#" class="logout">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span class="nav_link">Logout</span></a>
+        </li>
+    </ul>
+   </nav>
+   
+   <div class="content">
+    <div class="sec1">
+     <div class="heading">
+        <h3 class="title">Dashboard</h3>
+        <h3 class="date">05 Nov 2022, Saturday</h3>
+        <br>
+        <input  class="search" type="search" placeholder="Search">
+     </div>
+    </div>
+    <div class="sec2">
+        <div class="welcome">
+            <h2>Welcome back Madiha!</h2>
+            <p>You've learned <b>80%</b> of your goal this week!</p>
+            <p>Keep it up and improve your results!</p>
+        </div>
+        <div class="w_img">
+            <img class="image" src="images/study.jpg">
+        </div>
+    </div>
+   </div> 
+   <div class="middle">
+   <div class="container">
+    <div class="sec3">
+    <div class="heading1">
+        <h3>Latest results</h3>
+        <h5>More	&#8594</h5>
+    </div>
+          <div class="row">
+            <h4><b>Unit 5-</b>Technology</h4>
+            <div class="percentage"><div class="pb"><div class="load"></div></div>25%</div>
+          </div>
+          <div class="row">
+            <h4><b>Unit 12-</b>Physics</h4>
+            <div class="percentage"><div class="pb"><div class="load1"></div></div>44%</div>
+          </div>
+          <div class="row">
+            <h4><b>Unit 9-</b>Biology</h4>
+            <div class="percentage"><div class="pb"><div class="load2"></div></div>40%</div>
+          </div>
+          <div class="row">
+            <h4><b>Unit 8-</b>History</h4>
+            <div class="percentage"><div class="pb"><div class="load3"></div></div>35%</div>
+          </div>
+          <div class="row">
+            <h4><b>Unit 16-</b>Chemistry</h4>
+            <div class="percentage"><div class="pb"><div class="load4"></div></div>85%</div>
+          </div>
+    </div>
+   </div>
+   <div class="adj">
+   <div class="box">
+    <div class="percent">
+        <svg>
+            <circle cx="70" cy="70" r="70"></circle>
+            <circle cx="70" cy="70" r="70"></circle>
+        </svg>
+        <div class="number">
+            <h2>87<span>%</span></h2>
+        </div>
+        <h4 class="c_text">Your progress</h4>
+    </div>
+   </div>
+</div>
+<div class="course">
+    <div class="sec4">
+        <h3>Your courses</h3>
+        <div class="divisions">
+            <div class="box1">
+                <div class="level">B2</div>
+                <div class="sub">
+                    <h4>Business English</h4>
+                    <h2 class="arrow">Grammar	&#8594</h2>
+                </div>
+            </div>
+            <br>
+            <div class="box2">
+                <div class="level">B2</div>
+                <div class="sub">
+                    <h4>Comman English</h4>
+                    <h2 class="arrow">Phrasal verbs	&#8594</h2>
+                </div>
+            </div>
+            <br>
+            <div class="box3">
+                <div class="level">C1</div>
+                <div class="sub">
+                    <h4>Business Spanish</h4>
+                    <h2 class="arrow">Vocabulary	&#8594</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>
